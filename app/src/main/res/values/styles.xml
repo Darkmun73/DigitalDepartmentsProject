@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO: сделать для разных вьюшек свои стайлы-->
+<resources>
+    <style name="MaterialButtonStyle" parent="Widget.Material3.Button">
+        <item name="cornerRadius">4dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+</resources>

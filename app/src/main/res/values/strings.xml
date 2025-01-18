@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DigitalDepartments</string>
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="already_have_account">Уже есть аккаунт?</string>
+    <string name="welcome_message_1">Пожалуй, лучший фитнес трекер в ДВФУ</string>
+    <string name="welcome_message_2">Созданный студентами</string>
+    <string name="bicycles_image_desc">Ребята на велосипедах</string>
 </resources>
