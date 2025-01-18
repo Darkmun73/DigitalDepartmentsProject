@@ -5,4 +5,21 @@
     <string name="welcome_message_1">Пожалуй, лучший фитнес трекер в ДВФУ</string>
     <string name="welcome_message_2">Созданный студентами</string>
     <string name="bicycles_image_desc">Ребята на велосипедах</string>
+
+    <string name="registration">Регистрация</string>
+
+    <string name="login">Логин</string>
+    <string name="nickname">Имя или никнейм</string>
+    <string name="password">Пароль</string>
+    <string name="password_confirm">Повторите пароль</string>
+    <string name="sex">Пол</string>
+    <string name="sex_man">Мужской</string>
+    <string name="sex_female">Женский</string>
+    <string name="sex_other">Другое</string>
+
+    <string name="policy_agreement_full">Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности и обработки персональных данных, а также принимаете пользовательское соглашение</string>
+    <string name="policy_agreement_1">Нажимая на кнопку, вы соглашаетесь с </string>
+    <string name="policy_agreement_link_1">политикой конфиденциальности</string>
+    <string name="policy_agreement_2"> и обработки персональных данных, а также принимаете </string>
+    <string name="policy_agreement_link_2">пользовательское соглашение</string>
 </resources>

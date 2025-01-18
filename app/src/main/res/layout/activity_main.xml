@@ -45,7 +45,7 @@
 
         android:text="@string/welcome_message_1"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="@dimen/large_text"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@id/welcome_message_2"
@@ -62,7 +62,7 @@
         android:text="@string/welcome_message_2"
         android:textAlignment="center"
         android:textColor="@color/gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/small_text"
 
         app:layout_constraintBottom_toTopOf="@id/register_button"
         app:layout_constraintEnd_toStartOf="@id/guideline_2"
@@ -77,7 +77,7 @@
 
         android:text="@string/register_button"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textSize="@dimen/small_text"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@id/have_account_button"
@@ -94,7 +94,7 @@
         android:text="@string/already_have_account"
         android:textAlignment="center"
 
-        android:textSize="16sp"
+        android:textSize="@dimen/small_text"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline_2"
