@@ -22,4 +22,7 @@
     <string name="policy_agreement_link_1">политикой конфиденциальности</string>
     <string name="policy_agreement_2"> и обработки персональных данных, а также принимаете </string>
     <string name="policy_agreement_link_2">пользовательское соглашение</string>
+
+    <string name="log_in">Вход</string>
+    <string name="log_in_button">Войти</string>
 </resources>
