@@ -11,7 +11,7 @@
     </style>
 
     <style name="ActionBarTitleStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -25,5 +25,43 @@
         <item name="navigationIcon">@drawable/ic_arrow_back_24</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="titleTextAppearance">@style/ActionBarTitleStyle</item>
+    </style>
+
+    <style name="BottomNavigationViewText" parent="TextStyle">
+        <item name="android:textSize">@dimen/very_small_text</item>
+    </style>
+
+    <style name="BottomNavigationViewText.Active" parent="TextStyle">
+        <item name="android:textSize">@dimen/very_small_text</item>
+    </style>
+
+    <style name="BottomNavigationView.Indicator">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavigationViewText.Active</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavigationViewText</item>
+        <item name="itemIconTint">@color/bnv_icon_color</item>
+        <item name="itemTextColor">@color/bnv_text_color</item>
+        <item name="itemTextAppearanceActiveBoldEnabled">false</item>
+        <item name="itemActiveIndicatorStyle">@style/BottomNavigationView.Indicator</item>
+    </style>
+
+    <style name="TabLayoutText" parent="TextStyle">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TabLayoutText.Selected" parent="TextStyle">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@color/white</item>
+        <item name="tabTextAppearance">@style/TabLayoutText</item>
+        <item name="tabSelectedTextAppearance">@style/TabLayoutText.Selected</item>
+        <item name="tabTextColor">@color/gray</item>
+        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
     </style>
 </resources>
