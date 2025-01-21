@@ -31,4 +31,12 @@
 
     <string name="my">Моя</string>
     <string name="users">Пользователей</string>
+
+    <string name="distance_example">14.2 км</string>
+    <string name="time_example">2 часа 36 минут</string>
+    <string name="activity_name_example">Серфинг</string>
+    <string name="activity_date_example">14 часов назад</string>
+    <string name="username_example">\@van_darkholme</string>
+    <string name="username_template">\@%1$s</string>
+    <string name="date_section_example">Вчера</string>
 </resources>
