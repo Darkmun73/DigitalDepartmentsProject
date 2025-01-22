@@ -20,6 +20,8 @@ class RegistrationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
         registrationBinding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(registrationBinding.root)
 
@@ -28,7 +30,6 @@ class RegistrationActivity : AppCompatActivity() {
 
         makePolicyAgreementTextClickable()
 
-        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(registrationBinding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

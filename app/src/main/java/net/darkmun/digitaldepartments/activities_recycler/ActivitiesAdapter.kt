@@ -10,6 +10,8 @@ import net.darkmun.digitaldepartments.databinding.ItemUserActivityBinding
 
 class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
+    private var itemClickListener: (ActivityInfo) -> Unit = {}
+
     companion object {
         private const val MY_ACTIVITY = 1
         private const val USER_ACTIVITY = 2
@@ -65,11 +67,21 @@ class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : R
         return activitiesAndDates.count()
     }
 
+    fun setItemClickListener(listener: (ActivityInfo) -> Unit) {
+        itemClickListener = listener
+    }
+
     inner class MyActivityVH(itemBinding: ItemMyActivityBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         private val distance = itemBinding.distance
         private val time = itemBinding.time
         private val activityName = itemBinding.activityName
         private val activityDate = itemBinding.activityDate
+
+        init {
+            itemBinding.root.setOnClickListener {
+                itemClickListener.invoke(activitiesAndDates[adapterPosition])
+            }
+        }
 
         fun bind(activityInfo: ActivityInfo.MyActivityInfo) {
             distance.text = activityInfo.distance
@@ -87,6 +99,12 @@ class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : R
         private val activityName = itemBinding.activityName
         private val activityDate = itemBinding.activityDate
         private val username = itemBinding.username
+
+        init {
+            itemBinding.root.setOnClickListener {
+                itemClickListener.invoke(activitiesAndDates[adapterPosition])
+            }
+        }
 
         fun bind(activityInfo: ActivityInfo.UserActivityInfo) {
             distance.text = activityInfo.distance

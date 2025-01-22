@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import net.darkmun.digitaldepartments.databinding.ActivityFitnessTrackerBinding
 
@@ -15,8 +16,9 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
     private lateinit var fitnessTrackerBinding: ActivityFitnessTrackerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
         fitnessTrackerBinding = ActivityFitnessTrackerBinding.inflate(layoutInflater)
         setContentView(fitnessTrackerBinding.root)
 
@@ -41,6 +43,7 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val fragActivity = supportFragmentManager.findFragmentByTag("Activity fragment")
+        val fragActivityDetails = supportFragmentManager.findFragmentByTag("Activity details fragment")
         val fragProfile = supportFragmentManager.findFragmentByTag("Profile fragment")
 
         when(item.itemId) {
@@ -48,6 +51,9 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
                 supportFragmentManager.beginTransaction().apply {
                     if (fragActivity != null) {
                         show(fragActivity)
+                    }
+                    if (fragActivityDetails != null) {
+                        show(fragActivityDetails)
                     }
                     if (fragProfile != null) {
                         hide(fragProfile)
@@ -60,6 +66,9 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
                     if (fragActivity != null) {
                         hide(fragActivity)
                     }
+                    if (fragActivityDetails != null) {
+                        hide(fragActivityDetails)
+                    }
                     if (fragProfile != null) {
                         show(fragProfile)
                     } else {
@@ -68,6 +77,9 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
                             "Profile fragment")
                     }
                     commit()
+                }
+                if (fragActivityDetails != null) {
+                    supportFragmentManager.popBackStack("Activity details fragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 }
             }
         }

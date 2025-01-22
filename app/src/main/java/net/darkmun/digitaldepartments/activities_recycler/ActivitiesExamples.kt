@@ -33,7 +33,8 @@ class ActivitiesExamples {
                 "14 часов назад",
                 "14:49",
                 "16:31",
-                "van_darkholme"
+                "van_darkholme",
+                "Я бежал очень сильно, ты так не сможешь"
             ),
             ActivityInfo.UserActivityInfo(
                 "228 м",
@@ -42,7 +43,8 @@ class ActivitiesExamples {
                 "14 часов назад",
                 "00:00",
                 "14:48",
-                "techniquepasha"
+                "techniquepasha",
+                ""
             ),
             ActivityInfo.UserActivityInfo(
                 "10 км",
@@ -51,7 +53,8 @@ class ActivitiesExamples {
                 "14 часов назад",
                 "12:00",
                 "13:10",
-                "morgen_shtern"
+                "morgen_shtern",
+                ""
             )
         )
 

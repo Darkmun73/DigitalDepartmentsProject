@@ -18,7 +18,8 @@ sealed class ActivityInfo {
         val activityDate: String,
         val startTime: String,
         val finishTime: String,
-        val userName: String
+        val userName: String,
+        val commentary: String
     ) : ActivityInfo()
 
     data class DateSectionInfo(

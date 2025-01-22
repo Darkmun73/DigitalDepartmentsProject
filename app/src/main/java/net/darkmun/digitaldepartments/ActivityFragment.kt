@@ -15,16 +15,10 @@ class ActivityFragment : Fragment() {
     private lateinit var fragmentCollectionAdapter: FragmentCollectionAdapter
     private lateinit var activityBinding: FragmentActivityBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         activityBinding = FragmentActivityBinding.inflate(inflater, container, false)
         return activityBinding.root
     }
@@ -44,11 +38,7 @@ class ActivityFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            ActivityFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+        fun newInstance() = ActivityFragment()
     }
 }
 

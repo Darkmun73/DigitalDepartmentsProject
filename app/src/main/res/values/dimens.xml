@@ -7,4 +7,9 @@
 
     <dimen name="rv_item_margin_top">16dp</dimen>
     <dimen name="rv_item_elevation">3dp</dimen>
+
+    <item name="guideline_start_percent" format="float" type="integer">0.04</item>
+    <item name="guideline_end_percent" format="float" type="integer">0.96</item>
+    <item name="guideline_start_percent_x2" format="float" type="integer">0.08</item>
+    <item name="guideline_end_percent_x2" format="float" type="integer">0.92</item>
 </resources>

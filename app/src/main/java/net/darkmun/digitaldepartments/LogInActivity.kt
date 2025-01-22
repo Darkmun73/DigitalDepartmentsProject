@@ -13,10 +13,14 @@ class LogInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
         logInBinding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(logInBinding.root)
 
-        enableEdgeToEdge()
+        val toolBar = logInBinding.logInToolbar
+        setSupportActionBar(toolBar)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

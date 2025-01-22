@@ -11,26 +11,16 @@ class ProfileFragment : Fragment() {
 
     private lateinit var profileBinding: FragmentProfileBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
         return profileBinding.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+        fun newInstance() = ProfileFragment()
     }
 }
