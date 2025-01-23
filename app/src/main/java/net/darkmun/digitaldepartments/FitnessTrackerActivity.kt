@@ -8,7 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
+import net.darkmun.digitaldepartments.activity.ActivityFragment
 import net.darkmun.digitaldepartments.databinding.ActivityFitnessTrackerBinding
+import net.darkmun.digitaldepartments.profile.ProfileFragment
 
 
 class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
@@ -45,6 +47,7 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
         val fragActivity = supportFragmentManager.findFragmentByTag("Activity fragment")
         val fragActivityDetails = supportFragmentManager.findFragmentByTag("Activity details fragment")
         val fragProfile = supportFragmentManager.findFragmentByTag("Profile fragment")
+        val fragChangePassword = supportFragmentManager.findFragmentByTag("Change password fragment")
 
         when(item.itemId) {
             R.id.activity -> {
@@ -58,7 +61,13 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
                     if (fragProfile != null) {
                         hide(fragProfile)
                     }
+                    if (fragChangePassword != null) {
+                        hide(fragChangePassword)
+                    }
                     commit()
+                }
+                if (fragChangePassword != null) {
+                    supportFragmentManager.popBackStack("Change password fragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 }
             }
             R.id.profile -> {
@@ -68,6 +77,9 @@ class FitnessTrackerActivity : AppCompatActivity(), OnItemSelectedListener {
                     }
                     if (fragActivityDetails != null) {
                         hide(fragActivityDetails)
+                    }
+                    if (fragChangePassword != null) {
+                        show(fragChangePassword)
                     }
                     if (fragProfile != null) {
                         show(fragProfile)

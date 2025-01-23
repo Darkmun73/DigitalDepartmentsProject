@@ -5,21 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/guideline_start_percent"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/guideline_end_percent"/>
+    tools:context=".MainActivity"
+    android:paddingHorizontal="@dimen/start_end_padding">
 
     <ImageView
         android:id="@+id/bicycles_image"
@@ -33,8 +20,8 @@
 
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@id/welcome_message_1"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -49,8 +36,8 @@
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@id/welcome_message_2"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bicycles_image" />
 
     <TextView
@@ -65,8 +52,8 @@
         android:textSize="@dimen/small_text"
 
         app:layout_constraintBottom_toTopOf="@id/register_button"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_message_1" />
 
     <com.google.android.material.button.MaterialButton
@@ -81,8 +68,8 @@
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@id/have_account_button"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_message_2" />
 
     <com.google.android.material.button.MaterialButton
@@ -97,8 +84,8 @@
         android:textSize="@dimen/small_text"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

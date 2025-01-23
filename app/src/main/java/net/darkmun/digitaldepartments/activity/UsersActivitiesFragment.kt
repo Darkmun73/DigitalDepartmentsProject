@@ -1,34 +1,34 @@
-package net.darkmun.digitaldepartments
+package net.darkmun.digitaldepartments.activity
 
-import CustomItemDecoration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import net.darkmun.digitaldepartments.activities_recycler.ActivitiesAdapter
-import net.darkmun.digitaldepartments.activities_recycler.ActivitiesExamples
-import net.darkmun.digitaldepartments.activities_recycler.ActivityInfo
-import net.darkmun.digitaldepartments.activity_details.MyActivityDetailsFragment
-import net.darkmun.digitaldepartments.databinding.FragmentMyActivitiesBinding
+import net.darkmun.digitaldepartments.R
+import net.darkmun.digitaldepartments.activity.recycler.ActivitiesAdapter
+import net.darkmun.digitaldepartments.activity.details.UserActivityDetailsFragment
+import net.darkmun.digitaldepartments.activity.recycler.ActivityItemDecoration
+import net.darkmun.digitaldepartments.databinding.FragmentUsersActivitiesBinding
 
-class MyActivitiesFragment : Fragment() {
+class UsersActivitiesFragment : Fragment() {
 
-    private lateinit var myActivitiesBinding: FragmentMyActivitiesBinding
+    private lateinit var usersActivitiesBinding: FragmentUsersActivitiesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        myActivitiesBinding = FragmentMyActivitiesBinding.inflate(inflater, container, false)
+        usersActivitiesBinding = FragmentUsersActivitiesBinding.inflate(inflater, container, false)
 
-        val adapter = ActivitiesAdapter(ActivitiesExamples.getMyActivitiesAndDateSections())
+
+        val adapter = ActivitiesAdapter(ActivitiesExamples.getUsersActivitiesAndDateSections())
         // TODO: При быстром нажатии может открыться несколько фрагментов
         adapter.setItemClickListener {
             requireActivity().supportFragmentManager.beginTransaction().apply {
                 add(R.id.fitness_tracker_frag_container,
-                    MyActivityDetailsFragment.newInstance(it as ActivityInfo.MyActivityInfo),
+                    UserActivityDetailsFragment.newInstance(it as ActivityInfo.UserActivityInfo),
                     "Activity details fragment")
                 addToBackStack("Activity details fragment")
                 setReorderingAllowed(true)
@@ -36,18 +36,19 @@ class MyActivitiesFragment : Fragment() {
             }
         }
 
-        val recyclerView = myActivitiesBinding.recyclerViewMy
+        val recyclerView = usersActivitiesBinding.recyclerViewUser
+
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = adapter
 
         val spacing = resources.getDimensionPixelSize(R.dimen.rv_item_margin_top)
-        recyclerView.addItemDecoration(CustomItemDecoration(spacing))
+        recyclerView.addItemDecoration(ActivityItemDecoration(spacing))
 
-        return myActivitiesBinding.root
+        return usersActivitiesBinding.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = MyActivitiesFragment()
+        fun newInstance() = UsersActivitiesFragment()
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/item_new_activity_type_layout_bg"
+    android:layout_marginVertical="4dp"
+    android:paddingStart="@dimen/start_end_padding"
+    tools:ignore="RtlSymmetry">
+
+    <TextView
+        android:id="@+id/activity_type_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:layout_marginEnd="10dp"
+
+        android:text="@string/activity_type_name_example"
+        android:textSize="@dimen/small_text"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/activity_type_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/bicycles_image_desc"
+        android:src="@drawable/ic_activity_type_bicycles"
+
+        app:layout_constraintStart_toEndOf="@id/activity_type_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

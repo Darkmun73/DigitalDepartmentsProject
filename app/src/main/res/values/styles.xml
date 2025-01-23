@@ -22,9 +22,12 @@
         <item name="android:elevation">4dp</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
 
-        <item name="navigationIcon">@drawable/ic_arrow_back_24</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="titleTextAppearance">@style/ActionBarTitleStyle</item>
+    </style>
+
+    <style name="ToolBarStyle.WithNavigation">
+        <item name="navigationIcon">@drawable/ic_arrow_back_24</item>
     </style>
 
     <style name="BottomNavigationViewText" parent="TextStyle">

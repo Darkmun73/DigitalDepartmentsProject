@@ -5,22 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyActivitiesFragment"
-    android:background="@color/light_gray">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/guideline_start_percent"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/guideline_end_percent"/>
+    tools:context=".activity.MyActivitiesFragment"
+    android:background="@color/light_gray"
+    android:paddingHorizontal="@dimen/start_end_padding">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_my"
@@ -29,7 +16,7 @@
 
         tools:listitem="@layout/item_my_activity"
 
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,7 @@
         <item name="android:textViewStyle">@style/TextStyle</item>
         <item name="bottomNavigationStyle">@style/BottomNavigationView</item>
         <item name="tabStyle">@style/TabLayout</item>
+        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
     </style>
 
     <style name="Theme.DigitalDepartments" parent="Base.Theme.DigitalDepartments" />

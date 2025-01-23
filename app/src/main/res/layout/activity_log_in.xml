@@ -9,92 +9,85 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/log_in_toolbar"
-        style="@style/ToolBarStyle"
+        style="@style/ToolBarStyle.WithNavigation"
 
         app:title="@string/log_in"
+        android:paddingHorizontal="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_1"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/guideline_start_percent"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/guideline_end_percent"/>
-
-    <ImageView
-        android:id="@+id/bicycles_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/bicycles_image_desc"
-        android:src="@drawable/ic_registration_bycycles"
-
-        android:adjustViewBounds="true"
-        android:layout_marginVertical="20dp"
-
-        app:layout_constraintBottom_toTopOf="@id/login_input"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
-        app:layout_constraintTop_toBottomOf="@id/log_in_toolbar" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-
-        app:layout_constraintVertical_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintTop_toBottomOf="@id/bicycles_image"
-        app:layout_constraintBottom_toTopOf="@id/password_input">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/start_end_padding"
+        app:layout_constraintTop_toBottomOf="@id/log_in_toolbar">
+        <ImageView
+            android:id="@+id/bicycles_image"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/login"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:contentDescription="@string/bicycles_image_desc"
+            android:src="@drawable/ic_registration_bycycles"
 
-    <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/password_input"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="@id/guideline_1"
-    app:layout_constraintEnd_toStartOf="@id/guideline_2"
-    app:layout_constraintTop_toBottomOf="@id/login_input"
-    app:layout_constraintBottom_toTopOf="@id/log_in_button"
-    app:passwordToggleEnabled="true">
+            android:adjustViewBounds="true"
+            android:layout_marginVertical="20dp"
 
+            app:layout_constraintBottom_toTopOf="@id/login_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_input"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="@string/password"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="15dp"
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/log_in_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bicycles_image"
+            app:layout_constraintBottom_toTopOf="@id/password_input">
 
-        android:text="@string/log_in_button"
-        android:textAlignment="center"
-        android:textSize="@dimen/small_text"
-        android:textStyle="bold"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        app:layout_constraintEnd_toStartOf="@id/guideline_2"
-        app:layout_constraintStart_toStartOf="@id/guideline_1"
-        app:layout_constraintTop_toBottomOf="@id/password_input" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_input"
+            app:layout_constraintBottom_toTopOf="@id/log_in_button"
+            app:passwordToggleEnabled="true">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/password"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/log_in_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+
+            android:text="@string/log_in_button"
+            android:textAlignment="center"
+            android:textSize="@dimen/small_text"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/password_input" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,10 @@
-package net.darkmun.digitaldepartments.activities_recycler
+package net.darkmun.digitaldepartments.activity.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.darkmun.digitaldepartments.R
+import net.darkmun.digitaldepartments.activity.ActivityInfo
 import net.darkmun.digitaldepartments.databinding.ItemDateBinding
 import net.darkmun.digitaldepartments.databinding.ItemMyActivityBinding
 import net.darkmun.digitaldepartments.databinding.ItemUserActivityBinding

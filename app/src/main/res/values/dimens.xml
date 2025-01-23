@@ -8,8 +8,19 @@
     <dimen name="rv_item_margin_top">16dp</dimen>
     <dimen name="rv_item_elevation">3dp</dimen>
 
+    <dimen name="rv_new_activity_type_item_margin_start">8dp</dimen>
+    <dimen name="rv_new_activity_type_item_selected_elevation">2dp</dimen>
+
+    <dimen name="start_end_padding">16dp</dimen>
+    <dimen name="start_end_padding_x1.5">24dp</dimen>
+    <dimen name="start_end_padding_x2">32dp</dimen>
+
+    <dimen name="default_stroke_width">1dp</dimen>
+    <dimen name="extended_stroke_width">2dp</dimen>
+
     <item name="guideline_start_percent" format="float" type="integer">0.04</item>
     <item name="guideline_end_percent" format="float" type="integer">0.96</item>
     <item name="guideline_start_percent_x2" format="float" type="integer">0.08</item>
     <item name="guideline_end_percent_x2" format="float" type="integer">0.92</item>
+
 </resources>

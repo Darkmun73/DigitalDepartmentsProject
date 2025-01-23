@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DigitalDepartments"
         tools:targetApi="31">
+        <!-- TODO: Поменять везде screenOrientation на portrait? -->
+        <activity
+            android:name=".activity.new_activity.NewActivityActivity"
+            android:exported="false"/>
         <activity
             android:name=".FitnessTrackerActivity"
             android:exported="true">
@@ -23,7 +27,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
             android:exported="false" />

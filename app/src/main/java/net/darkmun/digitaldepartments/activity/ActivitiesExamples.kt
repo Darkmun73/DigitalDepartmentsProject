@@ -1,4 +1,4 @@
-package net.darkmun.digitaldepartments.activities_recycler
+package net.darkmun.digitaldepartments.activity
 
 class ActivitiesExamples {
 

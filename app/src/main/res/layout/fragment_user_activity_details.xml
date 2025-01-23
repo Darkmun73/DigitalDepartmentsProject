@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_details.MyActivityDetailsFragment"
+    tools:context=".activity.details.MyActivityDetailsFragment"
     android:background="@color/light_gray"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activity_details_toolbar"
-        style="@style/ToolBarStyle"
+        style="@style/ToolBarStyle.WithNavigation"
 
         app:title="@string/activity_name_example"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,21 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:layout_marginVertical="1dp">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="@integer/guideline_start_percent_x2"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="@integer/guideline_end_percent_x2"/>
+        android:layout_marginVertical="1dp"
+        android:paddingHorizontal="@dimen/start_end_padding_x2">
 
         <TextView
             android:id="@+id/username"
@@ -47,8 +34,8 @@
             android:layout_marginTop="24dp"
 
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
-            app:layout_constraintEnd_toEndOf="@id/guideline_2"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/distance"
@@ -60,8 +47,8 @@
             android:layout_marginTop="24dp"
 
             app:layout_constraintTop_toBottomOf="@id/username"
-            app:layout_constraintStart_toStartOf="@id/guideline_1"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/activity_date"
@@ -72,8 +59,8 @@
             android:textColor="@color/gray"
 
             app:layout_constraintTop_toBottomOf="@id/distance"
-            app:layout_constraintStart_toStartOf="@id/guideline_1"
-            app:layout_constraintEnd_toEndOf="@id/guideline_2"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/time"
@@ -85,15 +72,15 @@
             android:layout_marginTop="24dp"
 
             app:layout_constraintTop_toBottomOf="@id/activity_date"
-            app:layout_constraintStart_toStartOf="@id/guideline_1"
-            app:layout_constraintEnd_toEndOf="@id/guideline_2"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.constraintlayout.helper.widget.Layer
             android:id="@+id/layer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/time"
             app:constraint_referenced_ids="start, start_time, start_finish_divider, finish, finish_time"/>
 
@@ -166,8 +153,8 @@
 
             app:boxBackgroundColor="@color/unenabled_text_input"
             app:boxStrokeColor="@color/unenabled_text_input_borders"
-            app:layout_constraintStart_toStartOf="@id/guideline_1"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/finish_time">
 
             <com.google.android.material.textfield.TextInputEditText

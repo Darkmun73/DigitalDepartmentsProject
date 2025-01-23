@@ -1,10 +1,11 @@
+package net.darkmun.digitaldepartments.activity.recycler
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 
-class CustomItemDecoration(
+class ActivityItemDecoration(
     private val spacing: Int,
 ) : ItemDecoration() {
     override fun getItemOffsets(

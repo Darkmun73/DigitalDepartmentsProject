@@ -50,4 +50,21 @@
     <string name="commentary">Комментарий</string>
     <string name="delete">Удалить</string>
     <string name="share">Поделиться</string>
+
+    <string name="new_activity_start">Погнали? :)</string>
+    <string name="new_activity_start_button">Начать</string>
+    <string name="activity_type_name_example">Велосипед</string>
+    <string name="current_time_example">00:01:46</string>
+    <string name="add_activity_fab_desc">Кнопка со стрелкой проигрывания</string>
+
+    <string name="save">Сохранить</string>
+    <string name="login_example">Supertox</string>
+    <string name="nickname_example">geraltizreevii</string>
+    <string name="change_password">Изменить пароль</string>
+    <string name="log_out_button">Выйти</string>
+
+    <string name="old_password">Старый пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="new_password_confirm">Повторите пароль</string>
+    <string name="confirm">Принять</string>
 </resources>

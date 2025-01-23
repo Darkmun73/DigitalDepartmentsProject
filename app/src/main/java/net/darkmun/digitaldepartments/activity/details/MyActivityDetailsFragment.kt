@@ -1,4 +1,4 @@
-package net.darkmun.digitaldepartments.activity_details
+package net.darkmun.digitaldepartments.activity.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import net.darkmun.digitaldepartments.R
-import net.darkmun.digitaldepartments.activities_recycler.ActivityInfo
+import net.darkmun.digitaldepartments.activity.ActivityInfo
 import net.darkmun.digitaldepartments.databinding.FragmentMyActivityDetailsBinding
 
 private const val ACTIVITY_NAME_ARG = "activity_name"
