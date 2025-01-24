@@ -40,6 +40,7 @@ class UsersActivitiesFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = adapter
+        recyclerView.setEmptyView(usersActivitiesBinding.emptyRecyclerView)
 
         val spacing = resources.getDimensionPixelSize(R.dimen.rv_item_margin_top)
         recyclerView.addItemDecoration(ActivityItemDecoration(spacing))

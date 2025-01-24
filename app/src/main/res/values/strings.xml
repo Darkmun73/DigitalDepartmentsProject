@@ -67,4 +67,6 @@
     <string name="new_password">Новый пароль</string>
     <string name="new_password_confirm">Повторите пароль</string>
     <string name="confirm">Принять</string>
+    <string name="empty_activities_main">Время потренить</string>
+    <string name="empty_activities_sub">Нажимай на кнопку ниже и начинаем трекать активность</string>
 </resources>
