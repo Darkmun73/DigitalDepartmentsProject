@@ -36,10 +36,10 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/time"
+        android:id="@+id/duration"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/time_example"
+        android:text="@string/duration_example"
         android:textSize="@dimen/small_text"
         android:layout_marginTop="4dp"
 
@@ -56,7 +56,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
 
-        app:layout_constraintTop_toBottomOf="@id/time"
+        app:layout_constraintTop_toBottomOf="@id/duration"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/activity_date"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -72,7 +72,7 @@
         android:textAlignment="textEnd"
         android:textColor="@color/gray"
 
-        app:layout_constraintTop_toBottomOf="@id/time"
+        app:layout_constraintTop_toBottomOf="@id/duration"
         app:layout_constraintStart_toEndOf="@id/activity_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

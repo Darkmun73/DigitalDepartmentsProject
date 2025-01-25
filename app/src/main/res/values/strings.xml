@@ -33,14 +33,14 @@
     <string name="users">Пользователей</string>
 
     <string name="distance_example">14.32 км</string>
-    <string name="time_example">2 часа 36 минут</string>
-    <string name="short_time_example">2 ч 36 мин</string>
+    <string name="duration_example">2 часа 36 минут</string>
+    <string name="short_duration_example">2 ч 36 мин</string>
     <string name="activity_name_example">Серфинг</string>
     <string name="activity_date_example">14 часов назад</string>
     <string name="username_example">\@van_darkholme</string>
     <string name="username_template">\@%1$s</string>
     <string name="date_section_example">Вчера</string>
-    <string name="start_time_exmaple">14:49</string>
+    <string name="start_time_example">14:49</string>
     <string name="finish_time_example">16:31</string>
     <string name="commentary_example">Я бежал очень сильно, ты так не сможешь</string>
 
@@ -53,7 +53,9 @@
 
     <string name="new_activity_start">Погнали? :)</string>
     <string name="new_activity_start_button">Начать</string>
-    <string name="activity_type_name_example">Велосипед</string>
+    <string name="activity_type_bicycle">Велосипед</string>
+    <string name="activity_type_running">Бег</string>
+    <string name="activity_type_walking">Шаг</string>
     <string name="current_time_example">00:01:46</string>
     <string name="add_activity_fab_desc">Кнопка со стрелкой проигрывания</string>
 
@@ -69,4 +71,21 @@
     <string name="confirm">Принять</string>
     <string name="empty_activities_main">Время потренить</string>
     <string name="empty_activities_sub">Нажимай на кнопку ниже и начинаем трекать активность</string>
+
+    <string name="distance_measure_template">%s км</string>
+
+    <plurals name="hours">
+        <item quantity="one">%d час</item>
+        <item quantity="few">%d часа</item>
+        <item quantity="other">%d часов</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d минута</item>
+        <item quantity="few">%d минуты</item>
+        <item quantity="other">%d минут</item>
+    </plurals>
+    <string name="duration_template">%1$s %2$s</string>
+
+    <string name="activity_date_template">%1$d.%2$m.%3$Y</string>
+    <string name="time_template">%1$H:%2$M</string>
 </resources>

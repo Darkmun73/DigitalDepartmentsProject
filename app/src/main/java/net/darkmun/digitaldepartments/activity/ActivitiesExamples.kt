@@ -1,28 +1,11 @@
 package net.darkmun.digitaldepartments.activity
 
+import net.darkmun.digitaldepartments.activity.database.ActivityInfo
+
 class ActivitiesExamples {
 
     companion object {
-        private val myActivities : List<ActivityInfo> = listOf(
-            ActivityInfo.DateSectionInfo("Вчера"),
-            ActivityInfo.MyActivityInfo(
-                "14.32 км",
-                "2 часа 46 минут",
-                "Серфинг",
-                "14 часов назад",
-                "14:49",
-                "16:31"
-            ),
-            ActivityInfo.DateSectionInfo("Май 2022 года"),
-            ActivityInfo.MyActivityInfo(
-                "1000 м",
-                "60 минут",
-                "Велосипед",
-                "29.05.2022",
-                "17:30",
-                "18:00"
-            )
-        )
+        private val myActivities : List<ActivityInfo> = listOf()
 
         private val usersActivities : List<ActivityInfo> = listOf(
             ActivityInfo.DateSectionInfo("Вчера"),

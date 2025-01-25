@@ -16,7 +16,7 @@
         android:layout_marginVertical="30dp"
         android:layout_marginEnd="10dp"
 
-        android:text="@string/activity_type_name_example"
+        android:text="@string/activity_type_bicycle"
         android:textSize="@dimen/small_text"
 
         app:layout_constraintTop_toTopOf="parent"

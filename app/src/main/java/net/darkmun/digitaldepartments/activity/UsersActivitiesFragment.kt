@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.darkmun.digitaldepartments.R
+import net.darkmun.digitaldepartments.activity.database.ActivityInfo
 import net.darkmun.digitaldepartments.activity.recycler.ActivitiesAdapter
 import net.darkmun.digitaldepartments.activity.details.UserActivityDetailsFragment
 import net.darkmun.digitaldepartments.activity.recycler.ActivityItemDecoration
@@ -28,7 +29,7 @@ class UsersActivitiesFragment : Fragment() {
         adapter.setItemClickListener {
             requireActivity().supportFragmentManager.beginTransaction().apply {
                 add(R.id.fitness_tracker_frag_container,
-                    UserActivityDetailsFragment.newInstance(it as ActivityInfo.UserActivityInfo),
+                    UserActivityDetailsFragment.newInstance(it as ActivityInfo.UserActivityInfo, requireContext()),
                     "Activity details fragment")
                 addToBackStack("Activity details fragment")
                 setReorderingAllowed(true)

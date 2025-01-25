@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.darkmun.digitaldepartments.R
-import net.darkmun.digitaldepartments.activity.ActivityInfo
+import net.darkmun.digitaldepartments.activity.database.ActivityInfo
+import net.darkmun.digitaldepartments.activity.database.ActivityType
 import net.darkmun.digitaldepartments.databinding.ItemDateBinding
 import net.darkmun.digitaldepartments.databinding.ItemMyActivityBinding
 import net.darkmun.digitaldepartments.databinding.ItemUserActivityBinding
 
-class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class ActivitiesAdapter(private var activitiesAndDates : List<ActivityInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     private var itemClickListener: (ActivityInfo) -> Unit = {}
 
@@ -72,12 +73,12 @@ class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : R
         itemClickListener = listener
     }
 
-    inner class MyActivityVH(itemBinding: ItemMyActivityBinding) : RecyclerView.ViewHolder(itemBinding.root) {
-        private val distance = itemBinding.distance
-        private val time = itemBinding.time
-        private val activityName = itemBinding.activityName
-        private val activityDate = itemBinding.activityDate
+    fun setActivities(activities: List<ActivityInfo>) {
+        activitiesAndDates = activities
+        notifyDataSetChanged()
+    }
 
+    inner class MyActivityVH(private val itemBinding: ItemMyActivityBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         init {
             itemBinding.root.setOnClickListener {
                 itemClickListener.invoke(activitiesAndDates[adapterPosition])
@@ -85,10 +86,28 @@ class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : R
         }
 
         fun bind(activityInfo: ActivityInfo.MyActivityInfo) {
-            distance.text = activityInfo.distance
-            time.text = activityInfo.time
-            activityName.text = activityInfo.activityName
-            activityDate.text = activityInfo.activityDate
+            val res = itemBinding.root.resources
+
+            val distanceStr = "%.2f".format(activityInfo.distance)
+            itemBinding.distance.text = res.getString(R.string.distance_measure_template, distanceStr)
+
+            val hoursInt = activityInfo.duration.toHours().toInt()
+            val minutesInt = activityInfo.duration.toMinutes().toInt()
+            val hoursString = res.getQuantityString(R.plurals.hours, hoursInt, hoursInt)
+            val minutesString = res.getQuantityString(R.plurals.minutes, minutesInt, minutesInt)
+            itemBinding.duration.text = res.getString(R.string.duration_template, hoursString, minutesString)
+
+            itemBinding.activityName.text =
+                when(activityInfo.getType()) {
+                    ActivityType.BICYCLE -> res.getString(R.string.activity_type_bicycle)
+                    ActivityType.RUNNING -> res.getString(R.string.activity_type_running)
+                    ActivityType.WALKING -> res.getString(R.string.activity_type_walking)
+                }
+
+            val day = activityInfo.getDate().dayOfMonth
+            val month = activityInfo.getDate().monthValue
+            val year = activityInfo.getDate().year
+            itemBinding.activityDate.text = res.getString(R.string.activity_date_template, day, month, year)
         }
     }
 
@@ -96,7 +115,7 @@ class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : R
         private val root = itemBinding.root
 
         private val distance = itemBinding.distance
-        private val time = itemBinding.time
+        private val duration = itemBinding.duration
         private val activityName = itemBinding.activityName
         private val activityDate = itemBinding.activityDate
         private val username = itemBinding.username
@@ -109,7 +128,7 @@ class ActivitiesAdapter(private val activitiesAndDates : List<ActivityInfo>) : R
 
         fun bind(activityInfo: ActivityInfo.UserActivityInfo) {
             distance.text = activityInfo.distance
-            time.text = activityInfo.time
+            duration.text = activityInfo.duration
             activityName.text = activityInfo.activityName
             activityDate.text = activityInfo.activityDate
             username.text = root.context.getString(R.string.username_template, activityInfo.userName)

@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.darkmun.digitaldepartments.R
+import net.darkmun.digitaldepartments.activity.database.ActivityInfo
+import net.darkmun.digitaldepartments.activity.database.ActivityDBSingleton
 import net.darkmun.digitaldepartments.activity.recycler.ActivitiesAdapter
 import net.darkmun.digitaldepartments.activity.details.MyActivityDetailsFragment
 import net.darkmun.digitaldepartments.activity.recycler.ActivityItemDecoration
@@ -27,12 +29,15 @@ class MyActivitiesFragment : Fragment() {
         adapter.setItemClickListener {
             requireActivity().supportFragmentManager.beginTransaction().apply {
                 add(R.id.fitness_tracker_frag_container,
-                    MyActivityDetailsFragment.newInstance(it as ActivityInfo.MyActivityInfo),
+                    MyActivityDetailsFragment.newInstance(it as ActivityInfo.MyActivityInfo, requireContext()),
                     "Activity details fragment")
                 addToBackStack("Activity details fragment")
                 setReorderingAllowed(true)
                 commit()
             }
+        }
+        ActivityDBSingleton.roomDB.myActivityDAO().getAll().observe(viewLifecycleOwner) {
+            adapter.setActivities(it)
         }
 
         val recyclerView = myActivitiesBinding.recyclerViewMy

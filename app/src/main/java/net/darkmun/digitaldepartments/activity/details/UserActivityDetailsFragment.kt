@@ -1,11 +1,13 @@
 package net.darkmun.digitaldepartments.activity.details
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import net.darkmun.digitaldepartments.activity.ActivityInfo
+import net.darkmun.digitaldepartments.R
+import net.darkmun.digitaldepartments.activity.database.ActivityInfo
 import net.darkmun.digitaldepartments.databinding.FragmentUserActivityDetailsBinding
 
 private const val ACTIVITY_NAME_ARG = "activity_name"
@@ -32,7 +34,7 @@ class UserActivityDetailsFragment : Fragment() {
             userActivityDetailsBinding.activityDate.text = it.getString(ACTIVITY_DATE_ARG)
             userActivityDetailsBinding.username.text = it.getString(USERNAME_ARG)
             userActivityDetailsBinding.distance.text = it.getString(DISTANCE_ARG)
-            userActivityDetailsBinding.time.text = it.getString(TIME_ARG)
+            userActivityDetailsBinding.duration.text = it.getString(TIME_ARG)
             userActivityDetailsBinding.startTime.text = it.getString(START_TIME_ARG)
             userActivityDetailsBinding.finishTime.text = it.getString(FINISH_TIME_ARG)
             userActivityDetailsBinding.commentary.editText!!.setText(it.getString(COMMENTARY_ARG))
@@ -49,14 +51,14 @@ class UserActivityDetailsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(activityInfo: ActivityInfo.UserActivityInfo) =
+        fun newInstance(activityInfo: ActivityInfo.UserActivityInfo, context: Context) =
             UserActivityDetailsFragment().apply {
                 arguments = Bundle().apply {
                     putString(ACTIVITY_NAME_ARG, activityInfo.activityName)
                     putString(ACTIVITY_DATE_ARG, activityInfo.activityDate)
-                    putString(USERNAME_ARG, "@${activityInfo.userName}")
+                    putString(USERNAME_ARG, context.getString(R.string.username_template, activityInfo.userName))
                     putString(DISTANCE_ARG, activityInfo.distance)
-                    putString(TIME_ARG, activityInfo.time)
+                    putString(TIME_ARG, activityInfo.duration)
                     putString(START_TIME_ARG, activityInfo.startTime)
                     putString(FINISH_TIME_ARG, activityInfo.finishTime)
                     putString(COMMENTARY_ARG, activityInfo.commentary)
