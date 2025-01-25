@@ -14,6 +14,7 @@ import net.darkmun.digitaldepartments.R
 import net.darkmun.digitaldepartments.activity.database.ActivityInfo
 import net.darkmun.digitaldepartments.activity.database.ActivityType
 import net.darkmun.digitaldepartments.databinding.FragmentMyActivityDetailsBinding
+import java.time.ZoneOffset
 
 private const val ACTIVITY_NAME_ARG = "activity_name"
 private const val ACTIVITY_DATE_ARG = "activity_date"
@@ -54,11 +55,11 @@ class MyActivityDetailsFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(activityInfo: ActivityInfo.MyActivityInfo, context: Context): MyActivityDetailsFragment {
-            val distanceStr = "%.2f".format(activityInfo.distance)
+            val distanceStr = "%.2f".format(activityInfo.distance/1000)
             val distanceWithMeasureStr = context.getString(R.string.distance_measure_template, distanceStr)
 
             val hoursInt = activityInfo.duration.toHours().toInt()
-            val minutesInt = activityInfo.duration.toMinutes().toInt()
+            val minutesInt = activityInfo.duration.toMinutesPart()
             val hoursString = context.resources.getQuantityString(R.plurals.hours, hoursInt, hoursInt)
             val minutesString = context.resources.getQuantityString(R.plurals.minutes, minutesInt, minutesInt)
             val durationStr = context.getString(R.string.duration_template, hoursString, minutesString)
@@ -70,17 +71,13 @@ class MyActivityDetailsFragment : Fragment() {
                     ActivityType.WALKING -> context.getString(R.string.activity_type_walking)
                 }
 
-            val day = activityInfo.getDate().dayOfMonth
-            val month = activityInfo.getDate().monthValue
-            val year = activityInfo.getDate().year
-            val activityDateStr = context.getString(R.string.activity_date_template, day, month, year)
+            val dateMillis = activityInfo.getDate().toInstant(ZoneOffset.UTC).toEpochMilli()
+            val activityDateStr = context.getString(R.string.activity_date_template, dateMillis, dateMillis, dateMillis)
 
-            val startHour = activityInfo.getStartTime().hour
-            val startMinute = activityInfo.getStartTime().minute
-            val finishHour = activityInfo.getFinishTime().hour
-            val finishMinute = activityInfo.getFinishTime().minute
-            val startTimeStr = context.getString(R.string.time_template, startHour, startMinute)
-            val finishTimeStr = context.getString(R.string.time_template, finishHour, finishMinute)
+            val startTime = activityInfo.getStartTime().toSecondOfDay() * 1000L
+            val finishTime = activityInfo.getFinishTime().toSecondOfDay() * 1000L
+            val startTimeStr = context.getString(R.string.time_template, startTime, startTime)
+            val finishTimeStr = context.getString(R.string.time_template, finishTime, finishTime)
 
             return MyActivityDetailsFragment().apply {
                 arguments = Bundle().apply {

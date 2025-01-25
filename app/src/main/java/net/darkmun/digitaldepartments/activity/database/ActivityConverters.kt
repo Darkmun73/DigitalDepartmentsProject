@@ -1,6 +1,5 @@
 package net.darkmun.digitaldepartments.activity.database
 
-import android.location.Location
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -36,6 +35,6 @@ class ActivityConverters {
     }
     @TypeConverter
     fun toListOfLocation(json: String): List<Location> {
-        return gson.fromJson(json, object : TypeToken<List<Location?>?>() {}.type)
+        return gson.fromJson(json, object : TypeToken<List<Location>>() {}.type)
     }
 }

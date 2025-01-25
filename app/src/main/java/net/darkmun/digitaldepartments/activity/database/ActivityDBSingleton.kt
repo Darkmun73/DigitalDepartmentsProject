@@ -12,6 +12,6 @@ object ActivityDBSingleton {
             context,
             ActivitiesDatabase::class.java,
             "Activities"
-        ).build()
+        ).allowMainThreadQueries().build() // TODO: разобраться с async и убрать allowMainThreadQueries
     }
 }

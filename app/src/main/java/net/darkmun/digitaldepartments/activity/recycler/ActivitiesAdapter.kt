@@ -1,5 +1,6 @@
 package net.darkmun.digitaldepartments.activity.recycler
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import net.darkmun.digitaldepartments.activity.database.ActivityType
 import net.darkmun.digitaldepartments.databinding.ItemDateBinding
 import net.darkmun.digitaldepartments.databinding.ItemMyActivityBinding
 import net.darkmun.digitaldepartments.databinding.ItemUserActivityBinding
+import java.time.ZoneOffset
 
 class ActivitiesAdapter(private var activitiesAndDates : List<ActivityInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
@@ -75,6 +77,7 @@ class ActivitiesAdapter(private var activitiesAndDates : List<ActivityInfo>) : R
 
     fun setActivities(activities: List<ActivityInfo>) {
         activitiesAndDates = activities
+        Log.w("Adapter", activitiesAndDates.toString())
         notifyDataSetChanged()
     }
 
@@ -88,11 +91,11 @@ class ActivitiesAdapter(private var activitiesAndDates : List<ActivityInfo>) : R
         fun bind(activityInfo: ActivityInfo.MyActivityInfo) {
             val res = itemBinding.root.resources
 
-            val distanceStr = "%.2f".format(activityInfo.distance)
+            val distanceStr = "%.2f".format(activityInfo.distance/1000)
             itemBinding.distance.text = res.getString(R.string.distance_measure_template, distanceStr)
 
             val hoursInt = activityInfo.duration.toHours().toInt()
-            val minutesInt = activityInfo.duration.toMinutes().toInt()
+            val minutesInt = activityInfo.duration.toMinutesPart()
             val hoursString = res.getQuantityString(R.plurals.hours, hoursInt, hoursInt)
             val minutesString = res.getQuantityString(R.plurals.minutes, minutesInt, minutesInt)
             itemBinding.duration.text = res.getString(R.string.duration_template, hoursString, minutesString)
@@ -104,10 +107,8 @@ class ActivitiesAdapter(private var activitiesAndDates : List<ActivityInfo>) : R
                     ActivityType.WALKING -> res.getString(R.string.activity_type_walking)
                 }
 
-            val day = activityInfo.getDate().dayOfMonth
-            val month = activityInfo.getDate().monthValue
-            val year = activityInfo.getDate().year
-            itemBinding.activityDate.text = res.getString(R.string.activity_date_template, day, month, year)
+            val dateMillis = activityInfo.getDate().toInstant(ZoneOffset.UTC).toEpochMilli()
+            itemBinding.activityDate.text = res.getString(R.string.activity_date_template, dateMillis, dateMillis, dateMillis)
         }
     }
 

@@ -1,6 +1,6 @@
 package net.darkmun.digitaldepartments.activity.database
 
-import android.location.Location
+import android.util.Log
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -12,6 +12,11 @@ enum class ActivityType {
     BICYCLE, RUNNING, WALKING
 }
 
+data class Location(
+    val latitude: Double,
+    val longitude: Double
+)
+
 sealed class ActivityInfo {
     @Entity
     data class MyActivityInfo (
@@ -22,22 +27,27 @@ sealed class ActivityInfo {
         @ColumnInfo(name="path") val path : List<Location>
     ) : ActivityInfo() {
         @ColumnInfo(name="distance") var distance: Float
-            get() {
-                // Distance in km
-                return field / 1000
-            }
         @ColumnInfo(name="duration") var duration: Duration
 
         init {
             distance = calculateDistance()
-            duration = Duration.between(finishDateTime, startDateTime)
+            duration = Duration.between(startDateTime, finishDateTime)
         }
 
         private fun calculateDistance() : Float {
             var distance = 0F
             for (i in 1..<path.size) {
-                distance += path[i].distanceTo(path[i-1])
+                val loc1 = android.location.Location("").apply {
+                    latitude = path[i].latitude
+                    longitude = path[i].longitude
+                }
+                val loc2 = android.location.Location("").apply {
+                    latitude = path[i-1].latitude
+                    longitude = path[i-1].longitude
+                }
+                distance += loc1.distanceTo(loc2)
             }
+            Log.w("calculate", distance.toString())
             return distance
         }
 

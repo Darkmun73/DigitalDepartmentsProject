@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.color.MaterialColors
 import net.darkmun.digitaldepartments.R
+import net.darkmun.digitaldepartments.activity.database.ActivityType
 import net.darkmun.digitaldepartments.activity.new_activity.ActivityTypeInfo
 import net.darkmun.digitaldepartments.databinding.ItemNewActivityTypeBinding
 
@@ -26,6 +27,10 @@ class ActivityTypesAdapter(private val types : List<ActivityTypeInfo>) : Recycle
 
     override fun getItemCount(): Int {
         return types.count()
+    }
+
+    fun getSelectedType(): ActivityType {
+        return types[selectedItemPosition].type
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -57,7 +62,14 @@ class ActivityTypesAdapter(private val types : List<ActivityTypeInfo>) : Recycle
                 mutate()
                 setStroke(strokeWidth, strokeColor)
             }
-            itemBinding.activityTypeName.text = types[position].name
+
+
+            itemBinding.activityTypeName.text =
+                when(types[position].type) {
+                    ActivityType.BICYCLE -> resources.getString(R.string.activity_type_bicycle)
+                    ActivityType.RUNNING -> resources.getString(R.string.activity_type_running)
+                    ActivityType.WALKING -> resources.getString(R.string.activity_type_walking)
+                }
             itemBinding.activityTypeImage.setImageResource(types[position].image)
         }
     }

@@ -86,6 +86,6 @@
     </plurals>
     <string name="duration_template">%1$s %2$s</string>
 
-    <string name="activity_date_template">%1$d.%2$m.%3$Y</string>
-    <string name="time_template">%1$H:%2$M</string>
+    <string name="activity_date_template">%1$td.%2$tm.%3$tY</string>
+    <string name="time_template">%1$tH:%2$tM</string>
 </resources>
